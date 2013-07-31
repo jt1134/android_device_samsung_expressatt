@@ -56,11 +56,11 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc
 
 # GPS
-#PRODUCT_PACKAGES += \
-#    gps.msm8960
+PRODUCT_PACKAGES += \
+    gps.msm8960
 
-#PRODUCT_COPY_FILES += \
-#    device/samsung/expressatt/gps/gps.conf:system/etc/gps.conf
+PRODUCT_COPY_FILES += \
+    device/samsung/expressatt/gps/gps.conf:system/etc/gps.conf
 
 # Torch
 PRODUCT_PACKAGES += Torch
@@ -109,9 +109,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.use_data_netmgrd=true \
     persist.data_netmgrd_nint=16 \
     lpa.decode=true \
-    ril.subscription.types=NV,RUIM \
-    ro.config.svlte1x=true \
-    ro.cdma.subscribe_on_ruim_ready=true \
     persist.radio.no_wait_for_card=0 \
     keyguard.no_require_sim=true \
     media.aac_51_output_enabled=true \
@@ -125,9 +122,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.rild.nitz_short_ons_2="" \
     persist.rild.nitz_short_ons_3=""
 
-# keep dalvik on /data
+# enable repeatable keys in cwm
 PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.dexopt-data-only=1
+    ro.cwm.enable_key_repeat=true \
+    ro.cwm.repeatable_keys=114,115
 
 # NFC Support
 PRODUCT_PACKAGES += \

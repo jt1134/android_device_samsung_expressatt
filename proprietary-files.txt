@@ -127,15 +127,3 @@ etc/wifi/wpa_supplicant.conf
 
 # Perf
 lib/libqc-opt.so
-
-# Use these as blobs for now
-lib/hw/copybit.msm8960.so
-lib/hw/gralloc.msm8960.so
-lib/hw/hwcomposer.msm8960.so
-lib/libgenlock.so
-lib/libhwcexternal.so
-lib/libhwcservice.so
-lib/libmemalloc.so
-lib/liboverlay.so
-lib/libqdutils.so
-
