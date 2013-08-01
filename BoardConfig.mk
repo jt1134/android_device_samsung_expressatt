@@ -28,6 +28,7 @@
 
 # Kernel
 TARGET_KERNEL_CONFIG        := cyanogen_expressatt_defconfig
+TARGET_KERNEL_VARIANT_CONFIG :=
 
 # Asserts
 TARGET_OTA_ASSERT_DEVICE := expressatt,SGH-I437,SGH-I437P
