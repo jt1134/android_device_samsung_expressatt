@@ -27,7 +27,7 @@
 -include device/samsung/d2-common/BoardConfigCommon.mk
 
 # Kernel
-TARGET_KERNEL_CONFIG        := cyanogen_expressatt_defconfig
+TARGET_KERNEL_CONFIG         := cyanogen_expressatt_defconfig
 TARGET_KERNEL_VARIANT_CONFIG :=
 
 # Asserts
@@ -35,31 +35,27 @@ TARGET_OTA_ASSERT_DEVICE := expressatt,SGH-I437,SGH-I437P
 #TARGET_BOARD_INFO_FILE ?= device/samsung/expressatt/board-info.txt
 
 # Wifi
-WIFI_BAND := 802_11_ABG
-WPA_SUPPLICANT_VERSION := VER_0_8_X
-BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 BOARD_WLAN_DEVICE := qcwcn
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
-BOARD_HOSTAPD_DRIVER := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
-BOARD_HAVE_SAMSUNG_WIFI :=
 BOARD_HAS_QCOM_WLAN := true
 
-WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/prima_wlan.ko"
-WIFI_DRIVER_MODULE_NAME := "prima_wlan"
-WIFI_DRIVER_MODULE_ARG :=
-WIFI_DRIVER_MODULE_AP_ARG :=
-WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/prima_wlan/parameters/fwpath"
-WIFI_DRIVER_FW_PATH_STA :=
-WIFI_DRIVER_FW_PATH_AP :=
-WIFI_DRIVER_FW_PATH_P2P :=
+WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/prima_wlan.ko"
+WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/prima_wlan/parameters/fwpath"
+WIFI_DRIVER_MODULE_NAME     := "prima_wlan"
+
+# undefined
+WIFI_DRIVER_MODULE_ARG      :=
+WIFI_DRIVER_MODULE_AP_ARG   :=
+WIFI_DRIVER_FW_PATH_STA     :=
+WIFI_DRIVER_FW_PATH_AP      :=
+WIFI_DRIVER_FW_PATH_P2P     :=
+BOARD_HAVE_SAMSUNG_WIFI     :=
+BOARD_HAVE_BLUETOOTH_BCM    :=
 
 # bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/expressatt/bluetooth
 BOARD_BLUEDROID_VENDOR_CONF := device/samsung/expressatt/bluetooth/vnd_expressatt.txt
-
-# lights
-TARGET_PROVIDES_LIBLIGHT := true
 
 # camera hax
 COMMON_GLOBAL_CFLAGS += -DCONFIG_MSM8960_NO_CANCEL_AUTOFOCUS
