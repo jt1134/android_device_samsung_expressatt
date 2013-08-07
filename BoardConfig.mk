@@ -59,3 +59,5 @@ BOARD_BLUEDROID_VENDOR_CONF := device/samsung/expressatt/bluetooth/vnd_expressat
 
 # camera hax
 COMMON_GLOBAL_CFLAGS += -DCONFIG_MSM8960_NO_CANCEL_AUTOFOCUS
+
+BOARD_USE_LEGACY_SENSORS_FUSION := false
