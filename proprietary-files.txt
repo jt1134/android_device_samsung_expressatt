@@ -123,6 +123,10 @@ etc/firmware/wlan/prima/WCNSS_cfg.dat
 etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
 etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
+# Bluetooth
+bin/btnvtool
+bin/hci_qcomm_init
+
 # General
 lib/libdiag.so
 
