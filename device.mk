@@ -44,7 +44,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # scripts
 PRODUCT_PACKAGES += \
     50bluetooth \
-    60compass \
+    60sensors \
     wifimac.sh
 
 # d2-common
