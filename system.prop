@@ -8,4 +8,6 @@ rild.libpath=/system/lib/libril-qc-qmi-1.so
 telephony.lteOnGsmDevice=1
 ro.telephony.default_network=9
 
+ro.qualcomm.bt.hci_transport=smd
+
 ro.sf.lcd_density=240
