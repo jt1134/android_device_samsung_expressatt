@@ -36,11 +36,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
        device/samsung/expressatt/media/media_profiles.xml:system/etc/media_profiles.xml
 
-# enable repeatable keys in cwm
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.cwm.enable_key_repeat=true \
-    ro.cwm.repeatable_keys=114,115
-
 # scripts
 PRODUCT_PACKAGES += \
     50bluetooth \
