@@ -45,7 +45,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     50bluetooth \
     60sensors \
-    wifimac.sh
+    wifimac.sh \
+    camera.MSM8960
 
 # d2-common
 $(call inherit-product, device/samsung/d2-common/d2-common.mk)
