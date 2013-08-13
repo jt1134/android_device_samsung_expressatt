@@ -28,13 +28,9 @@ DEVICE_PACKAGE_OVERLAYS += device/samsung/d2-common/overlay-gsm
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
-# Keymaps
-PRODUCT_COPY_FILES += \
-       device/samsung/expressatt/keylayout/atmel_mxt_ts.kl:system/usr/keylayout/atmel_mxt_ts.kl
-
 # Media profile
 PRODUCT_COPY_FILES += \
-       device/samsung/expressatt/media/media_profiles.xml:system/etc/media_profiles.xml
+       device/samsung/expressatt/media_profiles.xml:system/etc/media_profiles.xml
 
 # scripts
 PRODUCT_PACKAGES += \
