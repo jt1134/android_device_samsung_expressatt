@@ -39,9 +39,6 @@ chown system.input /sys/class/input/input6/wake
 chown system.system /dev/i2c-12
 chmod 0666 /dev/i2c-12
 
-# flash
-chmod 0666 /sys/class/camera/rear/rear_flash
-
 # compass
 echo 0 > /sys/class/input/input5/ellipsoid_mode 0
 echo "10566 405 -81 760 9775 486 -876 1324 9758" > /sys/class/input/input5/static_matrix
