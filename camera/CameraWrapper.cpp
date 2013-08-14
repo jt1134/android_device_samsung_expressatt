@@ -21,7 +21,7 @@
 *
 */
 
-#define LOG_NDEBUG 0
+#define LOG_NDEBUG 1
 #define LOG_PARAMETERS
 
 #define LOG_TAG "CameraWrapper"
@@ -88,6 +88,48 @@ static int check_vendor_module()
     if (rv)
         ALOGE("failed to open vendor camera module");
     return rv;
+}
+
+const static char * iso_values[] = {"auto,ISO100,ISO200,ISO400,ISO800","auto"};
+
+static char * camera_fixup_getparams(int id, const char * settings)
+{
+    android::CameraParameters params;
+    params.unflatten(android::String8(settings));
+
+    // fix params here
+    params.set(android::CameraParameters::KEY_SUPPORTED_ISO_MODES, iso_values[id]);
+
+    android::String8 strParams = params.flatten();
+    char *ret = strdup(strParams.string());
+
+    ALOGD("%s: get parameters fixed up", __FUNCTION__);
+    return ret;
+}
+
+char * camera_fixup_setparams(int id, const char * settings)
+{
+    android::CameraParameters params;
+    params.unflatten(android::String8(settings));
+
+    // fix params here
+    if(params.get("iso")) {
+        const char* isoMode = params.get(android::CameraParameters::KEY_ISO_MODE);
+        if(strcmp(isoMode, "ISO100") == 0)
+            params.set(android::CameraParameters::KEY_ISO_MODE, "100");
+        else if(strcmp(isoMode, "ISO200") == 0)
+            params.set(android::CameraParameters::KEY_ISO_MODE, "200");
+        else if(strcmp(isoMode, "ISO400") == 0)
+            params.set(android::CameraParameters::KEY_ISO_MODE, "400");
+        else if(strcmp(isoMode, "ISO800") == 0)
+            params.set(android::CameraParameters::KEY_ISO_MODE, "800");
+    }
+
+    android::String8 strParams = params.flatten();
+    char *ret = strdup(strParams.string());
+
+    ALOGD("%s: set parameters fixed up", __FUNCTION__);
+    return ret;
 }
 
 /*******************************************************************
@@ -299,7 +341,14 @@ int camera_set_parameters(struct camera_device * device, const char *params)
     if(!device)
         return -EINVAL;
 
-    int ret = VENDOR_CALL(device, set_parameters, params);
+    char *tmp = NULL;
+    tmp = camera_fixup_setparams(CAMERA_ID(device), params);
+
+#ifdef LOG_PARAMETERS
+    __android_log_write(ANDROID_LOG_VERBOSE, LOG_TAG, tmp);
+#endif
+
+    int ret = VENDOR_CALL(device, set_parameters, tmp);
     return ret;
 }
 
@@ -312,6 +361,19 @@ char* camera_get_parameters(struct camera_device * device)
         return NULL;
 
     char* params = VENDOR_CALL(device, get_parameters);
+
+#ifdef LOG_PARAMETERS
+    __android_log_write(ANDROID_LOG_VERBOSE, LOG_TAG, params);
+#endif
+
+    char * tmp = camera_fixup_getparams(CAMERA_ID(device), params);
+    VENDOR_CALL(device, put_parameters, params);
+    params = tmp;
+
+#ifdef LOG_PARAMETERS
+    __android_log_write(ANDROID_LOG_VERBOSE, LOG_TAG, params);
+#endif
+
     return params;
 }
 
