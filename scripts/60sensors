@@ -43,6 +43,3 @@ chmod 0666 /dev/i2c-12
 echo 0 > /sys/class/input/input5/ellipsoid_mode 0
 echo "10566 405 -81 760 9775 486 -876 1324 9758" > /sys/class/input/input5/static_matrix
 
-setprop ctl.restart geomagneticd
-setprop ctl.restart orientationd
-
