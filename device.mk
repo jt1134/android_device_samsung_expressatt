@@ -39,5 +39,9 @@ PRODUCT_PACKAGES += \
     wifimac.sh \
     camera.MSM8960
 
+# for sensors
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.yas.enable=true
+
 # d2-common
 $(call inherit-product, device/samsung/d2-common/d2-common.mk)
