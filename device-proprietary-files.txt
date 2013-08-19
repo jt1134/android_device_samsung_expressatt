@@ -41,10 +41,6 @@ lib/libgemini.so
 lib/liboemcamera.so
 lib/libmmcamera_frameproc.so
 lib/libmmcamera_statsproc30.so
-lib/libchromatix_imx074_default_video.so
-lib/libchromatix_imx074_preview.so
-lib/libchromatix_ov2720_default_video.so
-lib/libchromatix_ov2720_preview.so
 lib/libchromatix_s5k3l1yx_default_video.so
 lib/libchromatix_s5k3l1yx_preview.so
 lib/libchromatix_s5k3l1yx_video_hd.so
@@ -66,11 +62,14 @@ etc/firmware/wcnss.b05
 etc/firmware/wcnss.mdt
 etc/firmware/wlan/prima/WCNSS_cfg.dat
 etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
-etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
+etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin_
 
 # Bluetooth
 bin/btnvtool
 bin/hci_qcomm_init
+
+# Thermal
+etc/thermald.conf
 
 # General
 lib/libdiag.so
