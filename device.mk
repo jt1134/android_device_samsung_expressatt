@@ -32,6 +32,10 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 TARGET_SCREEN_HEIGHT := 800
 TARGET_SCREEN_WIDTH := 480
 
+# Boot Logo
+PRODUCT_COPY_FILES += \
+       device/samsung/expressatt/initlogo.rle:root/initlogo.rle
+
 # Media profile
 PRODUCT_COPY_FILES += \
        device/samsung/d2-common/camera/media_profiles.xml:system/etc/media_profiles.xml
