@@ -28,6 +28,10 @@ DEVICE_PACKAGE_OVERLAYS += device/samsung/d2-common/overlay-gsm
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
+# Bootanimation
+TARGET_SCREEN_HEIGHT := 800
+TARGET_SCREEN_WIDTH := 480
+
 # Media profile
 PRODUCT_COPY_FILES += \
        device/samsung/expressatt/media_profiles.xml:system/etc/media_profiles.xml
