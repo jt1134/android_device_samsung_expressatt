@@ -35,7 +35,7 @@ TARGET_OTA_ASSERT_DEVICE := expressatt,SGH-I437,SGH-I437P
 #TARGET_BOARD_INFO_FILE ?= device/samsung/expressatt/board-info.txt
 
 # Insert contents of file near end of updater-script
-TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := ./build/tools/releasetools/ota_from_target_files -e ./device/samsung/expressatt/installer_extra
+TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := ./build/tools/releasetools/ota_from_target_files -e ./device/samsung/d2-common/scripts/installer_extra
 
 # Wifi
 BOARD_WLAN_DEVICE := qcwcn

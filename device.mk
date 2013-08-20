@@ -34,7 +34,7 @@ TARGET_SCREEN_WIDTH := 480
 
 # Media profile
 PRODUCT_COPY_FILES += \
-       device/samsung/expressatt/media_profiles.xml:system/etc/media_profiles.xml
+       device/samsung/d2-common/camera/media_profiles.xml:system/etc/media_profiles.xml
 
 # scripts
 PRODUCT_PACKAGES += \
