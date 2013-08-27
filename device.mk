@@ -47,5 +47,11 @@ PRODUCT_PACKAGES += \
     wifimac.sh \
     camera.MSM8960
 
+# prima wlan
+PRODUCT_PACKAGES += \
+    WCNSS_cfg.dat \
+    WCNSS_qcom_cfg.ini \
+    WCNSS_qcom_wlan_nv.bin_
+
 # d2-common
 $(call inherit-product, device/samsung/d2-common/d2-common.mk)
