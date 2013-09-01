@@ -66,3 +66,6 @@ COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
 
 # sensors
 BOARD_USE_LEGACY_SENSORS_FUSION := false
+
+# Backlight notification
+BOARD_USE_BLN := true
