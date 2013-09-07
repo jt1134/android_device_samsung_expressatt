@@ -29,8 +29,7 @@ PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 # Bootanimation
-TARGET_SCREEN_HEIGHT := 800
-TARGET_SCREEN_WIDTH := 480
+PRODUCT_BOOTANIMATION := vendor/cm/prebuilt/common/bootanimation/480.zip
 
 # Boot Logo
 PRODUCT_COPY_FILES += \
