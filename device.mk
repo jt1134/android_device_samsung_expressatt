@@ -15,7 +15,7 @@
 #
 
 ## (2) Also get non-open-source specific aspects if available
-$(call inherit-product-if-exists, vendor/samsung/expressatt/expressatt-vendor.mk)
+$(call inherit-product, vendor/samsung/expressatt/expressatt-vendor.mk)
 
 VARIENT_MODEL := expressatt
 
