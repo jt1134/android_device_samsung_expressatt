@@ -21,8 +21,6 @@ VARIENT_MODEL := expressatt
 
 ## overlays
 DEVICE_PACKAGE_OVERLAYS += device/samsung/expressatt/overlay
-## common overlays
-DEVICE_PACKAGE_OVERLAYS += device/samsung/d2-common/overlay-gsm
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi
