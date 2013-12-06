@@ -35,14 +35,13 @@ PRODUCT_COPY_FILES += \
 
 # Media profile
 PRODUCT_COPY_FILES += \
-       device/samsung/d2-common/camera/media_profiles.xml:system/etc/media_profiles.xml
+       device/samsung/expressatt/media/media_profiles.xml:system/etc/media_profiles.xml
 
 # scripts
 PRODUCT_PACKAGES += \
     50bluetooth \
     60sensors \
-    wifimac.sh \
-    camera.MSM8960
+    wifimac.sh
 
 # prima wlan
 PRODUCT_PACKAGES += \
