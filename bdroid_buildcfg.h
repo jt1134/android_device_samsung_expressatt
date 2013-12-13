@@ -21,5 +21,6 @@
 #define BTM_DEF_LOCAL_NAME	"Galaxy Express"
 #define BTA_DISABLE_DELAY 1000	/* in milliseconds */
 #define BLUETOOTH_QCOM_SW TRUE
+#define BTA_HOST_INTERLEAVE_SEARCH TRUE
 
 #endif
