@@ -31,7 +31,7 @@ lib/hw/nfc.MSM8960.so
 vendor/firmware/libpn544_fw.so
 
 # Camera
-lib/hw/camera.msm8960.so:lib/hw/vendor-camera.msm8960.so
+lib/hw/camera.msm8960.so:lib/hw/camera.vendor.msm8960.so
 lib/libmmjpeg.so
 lib/libmmstillomx.so
 lib/libimage-jpeg-dec-omx-comp.so
