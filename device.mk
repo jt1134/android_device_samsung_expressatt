@@ -17,17 +17,8 @@
 ## (2) Also get non-open-source specific aspects if available
 $(call inherit-product, vendor/samsung/expressatt/expressatt-vendor.mk)
 
-VARIENT_MODEL := expressatt
-
 ## overlays
 DEVICE_PACKAGE_OVERLAYS += device/samsung/expressatt/overlay
-
-# Device uses high-density artwork where available
-PRODUCT_AAPT_CONFIG := normal hdpi
-PRODUCT_AAPT_PREF_CONFIG := hdpi
-
-# Bootanimation
-PRODUCT_BOOTANIMATION := vendor/cm/prebuilt/common/bootanimation/480.zip
 
 # Boot Logo
 PRODUCT_COPY_FILES += \

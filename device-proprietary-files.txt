@@ -65,8 +65,5 @@ etc/firmware/wcnss.mdt
 bin/btnvtool
 bin/hci_qcomm_init
 
-# Thermal
-etc/thermald.conf
-
 # General
 lib/libdiag.so
