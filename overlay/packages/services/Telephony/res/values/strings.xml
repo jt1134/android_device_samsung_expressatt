@@ -15,9 +15,9 @@
 -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Mobile network settings, network mode choices for a device supporting CDMA and LTE [CHAR LIMIT=25] -->
+    <!-- Mobile network settings, network mode choices for a device supporting GSM and LTE [CHAR LIMIT=25] -->
     <string-array name="preferred_network_mode_choices">
-        <item>LTE/GSM/WCDMA</item>
+        <item>GSM/WCDMA/LTE</item>
         <item>GSM/WCDMA auto</item>
         <item>GSM/WCDMA preferred</item>
     </string-array>
@@ -26,7 +26,4 @@
         <item>"3"</item>
         <item>"0"</item>
     </string-array>
-
-    <!-- LTE/CDMA network mode to use for toggleLTE(true). -->
-    <integer name="toggleLTE_lte_cdma_nt_mode">8</integer>
 </resources>
