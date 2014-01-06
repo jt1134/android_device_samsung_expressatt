@@ -22,7 +22,7 @@ DEVICE_PACKAGE_OVERLAYS += device/samsung/expressatt/overlay
 
 # Boot Logo
 PRODUCT_COPY_FILES += \
-       device/samsung/expressatt/initlogo.rle:root/initlogo.rle
+       device/samsung/expressatt/rootdir/initlogo.rle:root/initlogo.rle
 
 # Media profile
 PRODUCT_COPY_FILES += \
