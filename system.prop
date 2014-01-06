@@ -1,6 +1,4 @@
 # system.prop for SGH-I437
-#
-# cannot take spaces
 
 # ril
 rild.libargs=-d /dev/smd0
