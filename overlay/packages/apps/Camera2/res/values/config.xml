@@ -18,4 +18,9 @@
      for different hardware or product builds. -->
 <resources>
     <bool name="enableZSL">false</bool>
+    <!-- Stay in continuous focus even if touch-to-focus is used
+         This option doesn't make sense if wantsFocusModes is on -->
+    <bool name="useContinuosFocusForTouch">false</bool>
+    <!-- Ignore bogus preferred preview size -->
+    <bool name="ignorePreferredPreviewSizeForVideo">true</bool>
 </resources>
