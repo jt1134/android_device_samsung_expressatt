@@ -24,18 +24,23 @@
 -include vendor/samsung/expressatt/BoardConfigVendor.mk
 
 # inherit from common d2
--include device/samsung/d2-common/BoardConfigCommon.mk
+-include device/samsung/d2lte/BoardConfigCommon.mk
 
 # Kernel
 TARGET_KERNEL_CONFIG         := cyanogen_expressatt_defconfig
 TARGET_KERNEL_VARIANT_CONFIG :=
+
+# We are not a unified device :(
+TARGET_UNIFIED_DEVICE :=
+TARGET_INIT_VENDOR_LIB :=
+TARGET_LIBINIT_DEFINES_FILE :=
 
 # Asserts
 TARGET_OTA_ASSERT_DEVICE := expressatt,SGH-I437,SGH-I437P
 TARGET_BOARD_INFO_FILE ?= device/samsung/expressatt/board-info.txt
 
 # Insert contents of file near end of updater-script
-TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := ./build/tools/releasetools/ota_from_target_files -e ./device/samsung/d2-common/apexq-common/installer_extra
+TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := ./build/tools/releasetools/ota_from_target_files -e ./device/samsung/d2lte/apexq-common/installer_extra
 
 # Wifi
 BOARD_WLAN_DEVICE := qcwcn

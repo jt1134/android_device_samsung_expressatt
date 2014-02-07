@@ -1,7 +1,7 @@
 [
   {
-    "repository": "android_device_samsung_d2-common",
-    "target_path": "device/samsung/d2-common"
+    "repository": "android_device_samsung_d2lte",
+    "target_path": "device/samsung/d2lte"
   },
   {
     "repository": "android_device_samsung_qcom-common",
