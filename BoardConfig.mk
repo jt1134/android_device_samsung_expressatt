@@ -36,7 +36,7 @@ TARGET_INIT_VENDOR_LIB :=
 TARGET_LIBINIT_DEFINES_FILE :=
 
 # Asserts
-TARGET_OTA_ASSERT_DEVICE := expressatt,SGH-I437,SGH-I437P
+TARGET_OTA_ASSERT_DEVICE := expressatt,expressziglteatt,SGH-I437,SGH-I437P
 TARGET_BOARD_INFO_FILE ?= device/samsung/expressatt/board-info.txt
 
 # Insert contents of file near end of updater-script
