@@ -1,4 +1,4 @@
-# Copyright (C) 2013 The CyanogenMod Project
+# Copyright (C) 2014 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -23,59 +23,47 @@
 # inherit from the proprietary version
 -include vendor/samsung/expressatt/BoardConfigVendor.mk
 
-# inherit from common d2
--include device/samsung/d2lte/BoardConfigCommon.mk
+# inherit from common msm8960
+-include device/samsung/msm8960-common/BoardConfigCommon.mk
 
 # Kernel
-BOARD_MKBOOTIMG_ARGS         := --ramdisk_offset 0x01500000
-TARGET_KERNEL_CONFIG         := cyanogen_expressatt_defconfig
-TARGET_KERNEL_VARIANT_CONFIG :=
-
-# We are not a unified device :(
-TARGET_UNIFIED_DEVICE :=
-TARGET_INIT_VENDOR_LIB :=
-TARGET_LIBINIT_DEFINES_FILE :=
+TARGET_KERNEL_CONFIG := cyanogen_expressatt_defconfig
 
 # Asserts
 TARGET_OTA_ASSERT_DEVICE := expressatt,expressziglteatt,SGH-I437,SGH-I437P
 TARGET_BOARD_INFO_FILE ?= device/samsung/expressatt/board-info.txt
 
-# Insert contents of file near end of updater-script
-#TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := ./build/tools/releasetools/ota_from_target_files -e ./device/samsung/d2lte/apexq-common/installer_extra
+# Audio
+BOARD_HAVE_AUDIENCE_A2220 := true
+BOARD_HAVE_DOCK_USBAUDIO := true
+BOARD_HAVE_NEW_QCOM_CSDCLIENT := true
+BOARD_USES_FLUENCE_FOR_VOIP := true
+BOARD_USES_FLUENCE_INCALL := true
+BOARD_USES_SEPERATED_VOIP := true
 
-# Wifi
-BOARD_WLAN_DEVICE := qcwcn
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
-BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_qcwcn
-BOARD_HAS_QCOM_WLAN := true
-BOARD_HAS_QCOM_WLAN_SDK := true
-WIFI_DRIVER_MODULE_PATH     :=
-WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/prima_wlan/parameters/fwpath"
-WIFI_DRIVER_MODULE_NAME     :=
-WIFI_DRIVER_MODULE_ARG      :=
-WIFI_DRIVER_MODULE_AP_ARG   :=
-WIFI_DRIVER_FW_PATH_STA     := "sta"
-WIFI_DRIVER_FW_PATH_AP      := "ap"
-WIFI_DRIVER_FW_PATH_P2P     :=
-BOARD_HAVE_SAMSUNG_WIFI     :=
-
-# bluetooth
+# Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/expressatt/bluetooth
-BOARD_BLUEDROID_VENDOR_CONF :=
-BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY :=
-BOARD_HAVE_BLUETOOTH_BCM :=
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
 QCOM_BT_USE_SMD_TTY := true
 
-# sensors
-BOARD_USE_LEGACY_SENSORS_FUSION := false
+# Camera
+TARGET_NEED_DISABLE_AUTOFOCUS := true
+TARGET_NEED_DISABLE_FACE_DETECTION_BOTH_CAMERAS := true
+TARGET_NEED_PREVIEW_SIZE_FIXUP := true
 
-# Backlight notification
+# Lights
 BOARD_USE_BLN := true
 
-# Camera
-TARGET_NEED_DISABLE_FACE_DETECTION_BOTH_CAMERAS := true
-TARGET_NEED_DISABLE_AUTOFOCUS := true
-# TARGET_NEED_PREVIEW_SIZE_FIXUP := true
-
+# Wifi
+BOARD_HAS_QCOM_WLAN := true
+BOARD_HAS_QCOM_WLAN_SDK := true
+BOARD_WLAN_DEVICE := qcwcn
+BOARD_HOSTAPD_DRIVER := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_${BOARD_WLAN_DEVICE}
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_${BOARD_WLAN_DEVICE}
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/prima_wlan/parameters/fwpath"
+WIFI_DRIVER_FW_PATH_STA     := "sta"
+WIFI_DRIVER_FW_PATH_AP      := "ap"

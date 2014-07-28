@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2013 The CyanogenMod Project
+# Copyright (C) 2014 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,25 +20,54 @@ $(call inherit-product-if-exists, vendor/samsung/expressatt/expressatt-vendor.mk
 ## overlays
 DEVICE_PACKAGE_OVERLAYS += device/samsung/expressatt/overlay
 
-# Boot Logo
-PRODUCT_COPY_FILES += \
-       device/samsung/expressatt/rootdir/initlogo.rle:root/initlogo.rle
+# Boot animation and screen size
+PRODUCT_AAPT_CONFIG := normal hdpi
+PRODUCT_AAPT_PREF_CONFIG := hdpi
+TARGET_SCREEN_HEIGHT := 800
+TARGET_SCREEN_WIDTH := 480
+PRODUCT_PROPERTY_OVERRIDES += ro.sf.lcd_density=240
 
-# Media profile
-PRODUCT_COPY_FILES += \
-       device/samsung/expressatt/media/media_profiles.xml:system/etc/media_profiles.xml
+$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
-# scripts
+# Ramdisk
 PRODUCT_PACKAGES += \
     50bluetooth \
     60sensors \
+    init.target.rc \
     wifimac.sh
 
-# prima wlan
+# Audio configuration
+PRODUCT_COPY_FILES += \
+    device/samsung/expressatt/audio/snd_soc_msm_2x:system/etc/snd_soc_msm/snd_soc_msm_2x \
+    device/samsung/expressatt/audio/audio_policy.conf:system/etc/audio_policy.conf
+
+# Keylayout
+PRODUCT_COPY_FILES += \
+    device/samsung/expressatt/keylayout/fsa9485.kl:system/usr/keylayout/fsa9485.kl \
+    device/samsung/expressatt/keylayout/msm8960-snd-card_Button_Jack.kl:system/usr/keylayout/msm8960-snd-card_Button_Jack.kl \
+    device/samsung/expressatt/keylayout/sec_key.kl:system/usr/keylayout/sec_key.kl \
+    device/samsung/expressatt/keylayout/sec_keys.kl:system/usr/keylayout/sec_keys.kl \
+    device/samsung/expressatt/keylayout/sec_powerkey.kl:system/usr/keylayout/sec_powerkey.kl \
+    device/samsung/expressatt/keylayout/sec_touchkey.kl:system/usr/keylayout/sec_touchkey.kl \
+    device/samsung/expressatt/keylayout/sii9234_rcp.kl:system/usr/keylayout/sii9234_rcp.kl
+
+# Logo
+PRODUCT_COPY_FILES += \
+    device/samsung/expressatt/initlogo.rle:root/initlogo.rle
+
+# Media profile
+PRODUCT_COPY_FILES += \
+    device/samsung/expressatt/media/media_profiles.xml:system/etc/media_profiles.xml
+
+# Wifi
+PRODUCT_COPY_FILES += \
+    device/samsung/expressatt/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+    device/samsung/expressatt/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
+
 PRODUCT_PACKAGES += \
     WCNSS_cfg.dat \
     WCNSS_qcom_cfg.ini \
-    WCNSS_qcom_wlan_nv.bin_
+    WCNSS_qcom_wlan_nv.bin
 
-# d2-common
-$(call inherit-product, device/samsung/d2lte/d2-common.mk)
+# common msm8960
+$(call inherit-product, device/samsung/msm8960-common/msm8960.mk)
