@@ -27,6 +27,7 @@
 -include device/samsung/d2lte/BoardConfigCommon.mk
 
 # Kernel
+BOARD_MKBOOTIMG_ARGS         := --ramdisk_offset 0x01500000
 TARGET_KERNEL_CONFIG         := cyanogen_expressatt_defconfig
 TARGET_KERNEL_VARIANT_CONFIG :=
 
@@ -48,9 +49,9 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
 BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_qcwcn
 BOARD_HAS_QCOM_WLAN := true
 BOARD_HAS_QCOM_WLAN_SDK := true
-WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/prima_wlan.ko"
+WIFI_DRIVER_MODULE_PATH     :=
 WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/prima_wlan/parameters/fwpath"
-WIFI_DRIVER_MODULE_NAME     := "prima_wlan"
+WIFI_DRIVER_MODULE_NAME     :=
 WIFI_DRIVER_MODULE_ARG      :=
 WIFI_DRIVER_MODULE_AP_ARG   :=
 WIFI_DRIVER_FW_PATH_STA     := "sta"
