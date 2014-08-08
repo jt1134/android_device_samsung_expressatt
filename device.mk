@@ -67,7 +67,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     WCNSS_cfg.dat \
     WCNSS_qcom_cfg.ini \
-    WCNSS_qcom_wlan_nv.bin
+    WCNSS_qcom_wlan_nv.bin_
 
 # common msm8960
 $(call inherit-product, device/samsung/msm8960-common/msm8960.mk)
