@@ -16,5 +16,11 @@
 
 """ Custom OTA commands for expressatt devices """
 
+import os
+
 def FullOTA_InstallEnd(info):
-  info.script.AppendExtra('run_program("/system/bin/wifimac.sh");')
+  info.output_zip.write(os.path.join(os.getenv('OUT'), "wifimac.sh"), "wifimac.sh")
+  info.script.AppendExtra(
+        ('package_extract_file("wifimac.sh", "/tmp/wifimac.sh");\n'
+         'set_perm(0, 0, 0777, "/tmp/wifimac.sh");\n'
+         'run_program("/tmp/wifimac.sh");'))
