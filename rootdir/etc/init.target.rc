@@ -3,6 +3,43 @@ on post-fs-data
     write /sys/module/wcnss_ssr_8960/parameters/enable_riva_ssr 1
     write /sys/devices/platform/wcnss_wlan.0/serial_number ${ro.serialno}
 
+    chown system system /dev/i2c-12
+    chmod 0660 /dev/i2c-12
+
+    chown system input /sys/class/input/input7/data
+    chown system input /sys/class/input/input7/delay
+    chown system input /sys/class/input/input7/enable
+    chown system input /sys/class/input/input7/filter_enable
+    chown system input /sys/class/input/input7/offset
+    chown system input /sys/class/input/input7/position
+    chown system input /sys/class/input/input7/threshold
+    chown system input /sys/class/input/input7/wake
+
+    chown system input /sys/class/input/input8/data
+    chown system input /sys/class/input/input8/delay
+    chown system input /sys/class/input/input8/enable
+    chown system input /sys/class/input/input8/filter_enable
+    chown system input /sys/class/input/input8/filter_len
+    chown system input /sys/class/input/input8/filter_noise
+    chown system input /sys/class/input/input8/filter_threshold
+    chown system input /sys/class/input/input8/position
+    chown system input /sys/class/input/input8/wake
+
+    chown compass input /sys/class/input/input9/dynamic_matrix
+    chown compass input /sys/class/input/input9/offsets
+    chown system input /sys/class/input/input9/distortion
+    chown system input /sys/class/input/input9/ellipsoid_mode
+    chown system input /sys/class/input/input9/shape
+    chown system input /sys/class/input/input9/static_matrix
+
+    chown system input /sys/class/input/input10/data
+    chown system input /sys/class/input/input10/delay
+    chown system input /sys/class/input/input10/enable
+    chown system input /sys/class/input/input10/wake
+
+    write /sys/class/input/input9/ellipsoid_mode 0
+    write /sys/class/input/input9/static_matrix "10566 405 -81 760 9775 486 -876 1324 9758"
+
 on boot
     exec /system/bin/btnvtool -O
     chown bluetooth bluetooth /efs/bluetooth/bt_addr
