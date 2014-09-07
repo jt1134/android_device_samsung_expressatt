@@ -35,6 +35,10 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     wifimac.sh
 
+PRODUCT_COPY_FILES += \
+    device/samsung/expressatt/rootdir/etc/init.qcom.rc:root/init.qcom.rc \
+    device/samsung/expressatt/rootdir/etc/ueventd.qcom.rc:root/ueventd.qcom.rc
+
 # Audio configuration
 PRODUCT_COPY_FILES += \
     device/samsung/expressatt/audio/snd_soc_msm_2x:system/etc/snd_soc_msm/snd_soc_msm_2x \
