@@ -26,6 +26,8 @@
 # inherit from common msm8960
 -include device/samsung/msm8960-common/BoardConfigCommon.mk
 
+TARGET_SPECIFIC_HEADER_PATH := device/samsung/expressatt/include
+
 # Kernel
 TARGET_KERNEL_CONFIG := cyanogen_expressatt_defconfig
 
@@ -52,6 +54,9 @@ QCOM_BT_USE_SMD_TTY := true
 TARGET_NEED_DISABLE_AUTOFOCUS := true
 TARGET_NEED_DISABLE_FACE_DETECTION_BOTH_CAMERAS := true
 TARGET_NEED_PREVIEW_SIZE_FIXUP := true
+
+# GPS
+BOARD_HAVE_NEW_QC_GPS := true
 
 # Lights
 BOARD_USE_BLN := true

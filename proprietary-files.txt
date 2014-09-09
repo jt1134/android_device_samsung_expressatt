@@ -24,6 +24,9 @@ lib/libchromatix_s5k3l1yx_preview.so
 lib/libchromatix_s5k3l1yx_video_hd.so
 lib/libchromatix_s5k3l1yx_zsl.so
 
+# GPS
+lib/libloc_api_v02.so
+
 # NFC
 lib/hw/nfc.MSM8960.so
 vendor/firmware/libpn544_fw.so

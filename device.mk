@@ -44,6 +44,13 @@ PRODUCT_COPY_FILES += \
     device/samsung/expressatt/audio/snd_soc_msm_2x:system/etc/snd_soc_msm/snd_soc_msm_2x \
     device/samsung/expressatt/audio/audio_policy.conf:system/etc/audio_policy.conf
 
+# GPS
+PRODUCT_PACKAGES += \
+    gps.msm8960
+
+PRODUCT_COPY_FILES += \
+    device/samsung/expressatt/gps/gps.conf:system/etc/gps.conf
+
 # Keylayout
 PRODUCT_COPY_FILES += \
     device/samsung/expressatt/keylayout/fsa9485.kl:system/usr/keylayout/fsa9485.kl \
