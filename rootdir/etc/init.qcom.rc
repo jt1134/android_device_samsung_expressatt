@@ -817,6 +817,7 @@ on property:ro.data.large_tcp_window_size=true
 
 on property:bluetooth.hciattach=true
     setprop bluetooth.status on
+    start hciattach
 
 on property:bluetooth.hciattach=false
     setprop bluetooth.status off

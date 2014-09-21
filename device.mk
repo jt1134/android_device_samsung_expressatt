@@ -31,7 +31,7 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    50bluetooth \
+    init.bt.sh \
     init.target.rc \
     wifimac.sh
 

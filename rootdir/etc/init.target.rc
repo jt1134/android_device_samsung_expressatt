@@ -46,6 +46,13 @@ on boot
 
 # Services start here
 
+service hciattach /system/bin/sh /system/etc/init.bt.sh
+    class late_start
+    user bluetooth
+    group qcom_oncrpc bluetooth net_bt_admin system
+    disabled
+    oneshot
+
 service geomagneticd /system/bin/geomagneticd
     class main
     user compass
