@@ -1,9 +1,25 @@
+# CPU
+bin/mpdecision
+bin/thermald
+lib/libqc-opt.so
+
+# Audio
+lib/libacdbloader.so
+lib/libaudcal.so
+lib/libcsd-client.so
+
 # Bluetooth
 bin/btnvtool
 bin/hci_qcomm_init
 
 # Camera
 lib/hw/camera.msm8960.so:lib/hw/camera.vendor.msm8960.so
+lib/libmmcamera_frameproc.so
+lib/libmmcamera_statsproc30.so
+lib/libmmjpeg.so
+lib/libmmstillomx.so
+lib/libimage-jpeg-enc-omx-comp.so
+lib/libvdis.so
 lib/libgemini.so
 lib/libimage-jpeg-dec-omx-comp.so
 lib/libimage-jpeg-enc-omx-comp.so
@@ -19,17 +35,45 @@ lib/libchromatix_s5k3l1yx_preview.so
 lib/libchromatix_s5k3l1yx_video_hd.so
 lib/libchromatix_s5k3l1yx_zsl.so
 
+# Camera firmware
+cameradata/SlimISP_GC.bin
+cameradata/SlimISP_GD.bin
+cameradata/SlimISP_GE.bin
+cameradata/SlimISP_GH.bin
+cameradata/SlimISP_JH.bin
+cameradata/SlimISP_PH.bin
+cameradata/SlimISP_WH.bin
+cameradata/SlimISP_ZC.bin
+cameradata/SlimISP_ZD.bin
+cameradata/SlimISP_ZE.bin
+cameradata/SlimISP_ZH.bin
+
+# Media
+lib/libExtendedExtractor.so
+
+# NFC
+lib/hw/nfc.msm8960.so
+
+# QMI
+lib/libqdi.so
+lib/libqdp.so
+lib/libqmi_client_qmux.so
+vendor/lib/libdiag.so
+
 # GPS
 lib/libloc_api_v02.so
 
 # Radio
+lib/libcordon.so
 bin/netmgrd
 bin/qmiproxy
 bin/qmuxd
+bin/radish
 bin/rild
 bin/rmt_storage
 bin/sec-ril
 lib/libatparser.so
+lib/libcordon.so
 lib/libdiag.so
 lib/libdsi_netctrl.so
 lib/libdsutils.so
@@ -59,6 +103,10 @@ lib/libqmi_client_qmux.so
 bin/geomagneticd
 bin/orientationd
 lib/hw/sensors.msm8960.so
+lib/libakmd.so
+lib/libinvensense_hal.so
+lib/libmllite.so
+lib/libmlplatform.so
 lib/libsensor_yamaha532_test.so
 
 # Wifi
