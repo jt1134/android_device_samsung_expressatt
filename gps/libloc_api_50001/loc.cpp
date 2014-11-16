@@ -92,11 +92,11 @@ static const GpsInterface sLocEngInterface =
 
 // Function declarations for sLocEngAGpsInterface
 static void loc_agps_init(AGpsCallbacks* callbacks);
-static int  loc_agps_open(AGpsType agpsType,
-                          const char* apn, AGpsBearerType bearerType);
-static int  loc_agps_closed(AGpsType agpsType);
-static int  loc_agps_open_failed(AGpsType agpsType);
+static int  loc_agps_open(const char* apn);
+static int  loc_agps_closed(void);
+static int  loc_agps_open_failed(void);
 static int  loc_agps_set_server(AGpsType type, const char *hostname, int port);
+static int  loc_agps_open_with_apn_type(const char* apn, ApnIpType bearerType);
 
 static const AGpsInterface sLocEngAGpsInterface =
 {
@@ -105,7 +105,8 @@ static const AGpsInterface sLocEngAGpsInterface =
    loc_agps_open,
    loc_agps_closed,
    loc_agps_open_failed,
-   loc_agps_set_server
+   loc_agps_set_server,
+   loc_agps_open_with_apn_type
 };
 
 static int loc_xtra_init(GpsXtraCallbacks* callbacks);
@@ -714,11 +715,10 @@ SIDE EFFECTS
    N/A
 
 ===========================================================================*/
-static int loc_agps_open(AGpsType agpsType,
-                         const char* apn, AGpsBearerType bearerType)
+static int loc_agps_open(const char* apn)
 {
     ENTRY_LOG();
-    int ret_val = loc_eng_agps_open(loc_afw_data, agpsType, apn, bearerType);
+    int ret_val = loc_eng_agps_open(loc_afw_data, AGPS_TYPE_ANY, apn, APN_IP_INVALID);
 
     EXIT_LOG(%d, ret_val);
     return ret_val;
@@ -741,10 +741,10 @@ SIDE EFFECTS
    N/A
 
 ===========================================================================*/
-static int loc_agps_closed(AGpsType agpsType)
+static int loc_agps_closed(void)
 {
     ENTRY_LOG();
-    int ret_val = loc_eng_agps_closed(loc_afw_data, agpsType);
+    int ret_val = loc_eng_agps_closed(loc_afw_data, AGPS_TYPE_ANY);
 
     EXIT_LOG(%d, ret_val);
     return ret_val;
@@ -767,10 +767,10 @@ SIDE EFFECTS
    N/A
 
 ===========================================================================*/
-int loc_agps_open_failed(AGpsType agpsType)
+int loc_agps_open_failed(void)
 {
     ENTRY_LOG();
-    int ret_val = loc_eng_agps_open_failed(loc_afw_data, agpsType);
+    int ret_val = loc_eng_agps_open_failed(loc_afw_data, AGPS_TYPE_ANY);
 
     EXIT_LOG(%d, ret_val);
     return ret_val;
@@ -807,6 +807,32 @@ static int loc_agps_set_server(AGpsType type, const char* hostname, int port)
         break;
     }
     int ret_val = loc_eng_set_server_proxy(loc_afw_data, serverType, hostname, port);
+
+    EXIT_LOG(%d, ret_val);
+    return ret_val;
+}
+
+/*===========================================================================
+FUNCTION    loc_agps_open
+
+DESCRIPTION
+   This function is called when on-demand data connection opening is successful.
+It should inform ARM 9 about the data open result.
+
+DEPENDENCIES
+   NONE
+
+RETURN VALUE
+   0
+
+SIDE EFFECTS
+   N/A
+
+===========================================================================*/
+static int loc_agps_open_with_apn_type(const char* apn, ApnIpType bearerType)
+{
+    ENTRY_LOG();
+    int ret_val = loc_eng_agps_open(loc_afw_data, AGPS_TYPE_ANY, apn, bearerType);
 
     EXIT_LOG(%d, ret_val);
     return ret_val;
