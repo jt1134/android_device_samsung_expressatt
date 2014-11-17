@@ -26,7 +26,7 @@
 # inherit from common msm8960
 -include device/samsung/msm8960-common/BoardConfigCommon.mk
 
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/expressatt/include
+TARGET_SPECIFIC_HEADER_PATH += device/samsung/expressatt/include
 
 # Kernel
 TARGET_KERNEL_CONFIG := cyanogen_expressatt_defconfig
