@@ -61,6 +61,9 @@ BOARD_HAVE_NEW_QC_GPS := true
 # Lights
 BOARD_USE_BLN := true
 
+# RIL
+BOARD_RIL_CLASS := ../../../device/samsung/expressatt/ril
+
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
 BOARD_HAS_QCOM_WLAN_SDK := true
