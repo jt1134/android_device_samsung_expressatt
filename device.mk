@@ -75,6 +75,9 @@ PRODUCT_COPY_FILES += \
     device/samsung/expressatt/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
 
 PRODUCT_PACKAGES += \
+    wpa_supplicant.conf
+
+PRODUCT_PACKAGES += \
     WCNSS_cfg.dat \
     WCNSS_qcom_cfg.ini \
     WCNSS_qcom_wlan_nv.bin_
