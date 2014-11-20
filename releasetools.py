@@ -20,7 +20,9 @@ import os
 
 def FullOTA_InstallEnd(info):
   info.output_zip.write(os.path.join(os.getenv('OUT'), "wifimac.sh"), "wifimac.sh")
+  info.script.Mount("/system")
   info.script.AppendExtra(
         ('package_extract_file("wifimac.sh", "/tmp/wifimac.sh");\n'
          'set_metadata("/tmp/wifimac.sh", "uid", 0, "gid", 0, "mode", 0755);\n'
          'run_program("/tmp/wifimac.sh");'))
+  info.script.Unmount("/system")
