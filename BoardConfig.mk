@@ -61,6 +61,10 @@ BOARD_HAVE_NEW_QC_GPS := true
 # Lights
 BOARD_USE_BLN := true
 
+# Partitions
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1258291200
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 5498732544
+
 # RIL
 BOARD_RIL_CLASS := ../../../device/samsung/expressatt/ril
 
