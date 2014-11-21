@@ -1,3 +1,6 @@
+on early-init
+    wait /dev/kgsl-3d0
+
 on post-fs-data
     write /dev/wcnss_wlan 1
     write /sys/module/wcnss_ssr_8960/parameters/enable_riva_ssr 1
