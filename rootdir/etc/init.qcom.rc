@@ -211,11 +211,9 @@ on fs
     # results in failure to launch late-start class.
 
     wait /dev/block/platform/msm_sdcc.1/by-name/persist
-    check_fs /dev/block/platform/msm_sdcc.1/by-name/persist ext4
     mount ext4 /dev/block/platform/msm_sdcc.1/by-name/persist /persist nosuid nodev barrier=1
 
     wait /dev/block/platform/msm_sdcc.1/by-name/efs
-    check_fs /dev/block/platform/msm_sdcc.1/by-name/efs ext4
     mount ext4 /dev/block/platform/msm_sdcc.1/by-name/efs /efs nosuid nodev noatime noauto_da_alloc,journal_async_commit,errors=panic
     chown system radio /efs
     chmod 0771 /efs
@@ -315,10 +313,6 @@ on post-fs-data
     #Create the symlink to qcn wpa_supplicant folder for ar6000 wpa_supplicant
     mkdir /data/system 0775 system system
     rm /data/system/wpa_supplicant
-
-    #Create directories for wiper services
-    mkdir /data/wpstiles/ 0755 shell
-    mkdir /data/wiper 0755 location qcom_oncrpc
 
     #Create directories for gpsone_daemon services
     mkdir /data/misc/gpsone_d 0770 system gps
@@ -558,11 +552,6 @@ on property:bluetooth.isEnabled=true
 on property:vold.decrypt=trigger_restart_framework
     start config_bluetooth
 
-service irsc_util /system/bin/logwrapper /system/bin/irsc_util "/etc/sec_config"
-    class main
-    user root
-    oneshot
-
 # Leaving this for now, feel free to remove once you've moved to rmt_storage2
 service rmt_storage /system/bin/rmt_storage
     class core
@@ -700,14 +689,6 @@ service dhcpcd_bt-pan /system/bin/dhcpcd -ABKLG
 service iprenew_bt-pan /system/bin/dhcpcd -n
     disabled
     oneshot
-
-on property:crypto.driver.load=1
-     insmod /system/lib/modules/qce.ko
-     insmod /system/lib/modules/qcedev.ko
-
-on property:crypto.driver.load=0
-     exec /system/bin/rmmod qcedev.ko
-     exec /system/bin/rmmod qce.ko
 
 service wifi-crda /system/bin/sh /system/etc/init.crda.sh
    class late_start
@@ -949,30 +930,10 @@ service kickstart /system/bin/qcks -i /firmware/image
     oneshot
     disabled
 
-service qrngd /system/bin/qrngd -f
-    class main
-    user root
-    group root
-
-service efsrestorecon /system/bin/restorecon -R /efs
-    class late_start
-    user root
-    group root
-    disabled
-    oneshot
-
 # Start kickstart if mdm is detected
 on property:ro.baseband=mdm
     mkdir /data/qcks 0770 system system
     start kickstart
-
-on property:init.svc.bootanim=stopped
-    start efsrestorecon
-
-# boot completed
-on property:dev.bootcomplete=1
-    # disable pulsing led on boot complete
-    exec /system/bin/sh /system/etc/init.led.sh
 
 # bugreport is triggered by holding down volume down, volume up and power
 service bugreport /system/bin/dumpstate -d -p -B \
