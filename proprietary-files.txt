@@ -71,7 +71,6 @@ bin/qmuxd
 bin/radish
 bin/rild
 bin/rmt_storage
-bin/sec-ril
 lib/libatparser.so
 lib/libcordon.so
 lib/libdiag.so

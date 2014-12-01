@@ -813,11 +813,6 @@ service ril-daemon /system/bin/rild
     user root
     group radio cache inet misc audio log qcom_diag sdcard_r shell sdcard_rw
 
-service secril-daemon /system/bin/sec-ril
-    class main
-    user root
-    group radio cache inet misc audio sdcard_rw qcom_diag log
-
 # virtual sdcard daemon running as media_rw (1023)
 service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
     class late_start
