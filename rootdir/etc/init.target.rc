@@ -67,6 +67,7 @@ service orientationd /system/bin/orientationd
     user compass
     group system input
     disabled
+    seclabel u:object_r:orientationd:s0
 
 on property:ro.yas.enable=true
     start orientationd
