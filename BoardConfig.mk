@@ -44,6 +44,9 @@ BOARD_USES_FLUENCE_INCALL := true
 BOARD_USES_SEPERATED_AUDIO_INPUT := true
 BOARD_USES_SEPERATED_VOIP := true
 
+# Bionic
+NON_PIE_SUPPORT_HEADER_DIR := device/samsung/expressatt/include
+
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/expressatt/bluetooth
 BOARD_HAVE_BLUETOOTH_QCOM := true
